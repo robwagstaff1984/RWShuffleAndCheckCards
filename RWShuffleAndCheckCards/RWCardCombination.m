@@ -51,7 +51,8 @@
 }
 
 - (NSUInteger)hash {
-    return [self.cardsInCombination[0] hash] ^ [self.cardsInCombination[1] hash] ;
+    NSString* combinedCardIdentifier = [NSString stringWithFormat:@"%u|%u",[self.cardsInCombination[0] cardIdentifier], [self.cardsInCombination[1] cardIdentifier]];
+    return [combinedCardIdentifier hash];
 }
 
 

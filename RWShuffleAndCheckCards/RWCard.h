@@ -11,9 +11,9 @@
 
 @interface RWCard : NSObject
 
-- (id)initWithCardValue:(int)cardValue suit:(int)suit;
+- (id)initWithCardValue:(NSUInteger)cardValue suit:(NSUInteger)suit;
 
-@property (nonatomic, assign) int suit;
-@property (nonatomic, assign) int cardValue;
-
+@property (nonatomic, assign) NSUInteger suit;
+@property (nonatomic, assign) NSUInteger cardValue;
+-(NSUInteger) cardIdentifier;
 @end

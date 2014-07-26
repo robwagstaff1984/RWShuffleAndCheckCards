@@ -15,4 +15,5 @@
 -(id)initWithStandardDeck;
 -(void)shuffleDeck;
 -(void)printDeck;
+-(NSMapTable*) twoCardSequences;
 @end
