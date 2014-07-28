@@ -101,6 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				360A5D1A19837023004569AE /* Model */,
+				360A5D241985DC0F004569AE /* RWGameLogic.h */,
+				360A5D251985DC0F004569AE /* RWGameLogic.m */,
 				360A5CFB19836EFF004569AE /* AppDelegate.h */,
 				360A5CFC19836F00004569AE /* AppDelegate.m */,
 				360A5CFE19836F00004569AE /* ViewController.h */,
@@ -146,8 +148,6 @@
 				360A5D1C19837035004569AE /* RWCardDeck.m */,
 				360A5D1E198370EB004569AE /* RWCard.h */,
 				360A5D1F198370EB004569AE /* RWCard.m */,
-				360A5D241985DC0F004569AE /* RWGameLogic.h */,
-				360A5D251985DC0F004569AE /* RWGameLogic.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";

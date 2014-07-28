@@ -29,10 +29,15 @@
  Question Answers:
  1) I would use a generic CardCombination class and have each specific card sequence subclass this. Each subclass would have it's own logic to determine what is a valid card combination and how to create the card combination. I have implemented this solution.
  
- 2) I would use the same generic cardCombination descrived in question 1 but have the subclass check for N combinations of cards instead. I would loop through each card in the deck and see if the card matches the first card required in the combination. I would then loop through all of the other required cards for the combination and test if they appear sequentially after the examined card.
+ 2) I would use the same generic cardCombination described in question 1 but have the subclass check for N combinations of cards instead. I would loop through each card in the deck and see if the card matches the first card required in the combination. I would then loop through all of the other required cards for the combination and test if they appear sequentially after the examined card.
+ 
  3) Instead of storing two NSMapTables for both the previous and current shuffles, I would store one NSMapTable for all of the cardCombinations found so far. This would actually simplify it and speed it up to O(1) lookup time instead of O(N) lookup time for previous card Combinations.
- 4) I would modify and subclass RWCardDeck so that instead of creating 4 * 13 cards, it creates X * Y cards with the appropriate card values and suits set.
- 5)
+ 
+ 4) I would add a method to RWCardDeck so that instead of creating 4 * 13 cards, it creates X * Y cards with the appropriate card values and suits set.
+ 
+ 5) speed: The algorithm I implemented is already O(N) for finding the card combinations and O(N) to find if a card combination has already occured. I would only be able to make minor speed optimizations
+ 
+    memory: Instead of storing two dictionaries populated with RWCardCombination objects, I could store a smaller representation of the card combination. For example i could store a string @"4:5:6" to represent a sequence of three card combination
  */
 
 @interface ViewController ()
