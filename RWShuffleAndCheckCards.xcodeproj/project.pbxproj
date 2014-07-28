@@ -16,6 +16,7 @@
 		360A5D1D19837035004569AE /* RWCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 360A5D1C19837035004569AE /* RWCardDeck.m */; };
 		360A5D20198370EB004569AE /* RWCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 360A5D1F198370EB004569AE /* RWCard.m */; };
 		360A5D23198384F1004569AE /* RWCardCombination.m in Sources */ = {isa = PBXBuildFile; fileRef = 360A5D22198384F1004569AE /* RWCardCombination.m */; };
+		360A5D261985DC0F004569AE /* RWGameLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 360A5D251985DC0F004569AE /* RWGameLogic.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,8 @@
 		360A5D1F198370EB004569AE /* RWCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWCard.m; sourceTree = "<group>"; };
 		360A5D21198384F1004569AE /* RWCardCombination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWCardCombination.h; sourceTree = "<group>"; };
 		360A5D22198384F1004569AE /* RWCardCombination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWCardCombination.m; sourceTree = "<group>"; };
+		360A5D241985DC0F004569AE /* RWGameLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWGameLogic.h; sourceTree = "<group>"; };
+		360A5D251985DC0F004569AE /* RWGameLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWGameLogic.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +138,8 @@
 				360A5D1F198370EB004569AE /* RWCard.m */,
 				360A5D21198384F1004569AE /* RWCardCombination.h */,
 				360A5D22198384F1004569AE /* RWCardCombination.m */,
+				360A5D241985DC0F004569AE /* RWGameLogic.h */,
+				360A5D251985DC0F004569AE /* RWGameLogic.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 				360A5D1D19837035004569AE /* RWCardDeck.m in Sources */,
 				360A5CFD19836F00004569AE /* AppDelegate.m in Sources */,
 				360A5CFA19836EFF004569AE /* main.m in Sources */,
+				360A5D261985DC0F004569AE /* RWGameLogic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +436,7 @@
 				360A5D1619836F00004569AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		360A5D1719836F00004569AE /* Build configuration list for PBXNativeTarget "RWShuffleAndCheckCardsTests" */ = {
 			isa = XCConfigurationList;
@@ -438,6 +445,7 @@
 				360A5D1919836F00004569AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

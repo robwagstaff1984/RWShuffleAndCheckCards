@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "RWCardDeck.h"
-#import "RWCardCombination.h"
+#import "RWGameLogic.h"
 
 //1) create a deck of cards, and print/display the cards
 //2) shuffle the deck of cards, and display the cards (in their shuffled order)
@@ -32,38 +32,11 @@
             
 - (void)viewDidLoad {
     [super viewDidLoad];
-    RWCardDeck* cardDeck = [[RWCardDeck alloc] initWithStandardDeck];
-    BOOL previousSequenceFound = YES;
     
-    while (previousSequenceFound) {
-    previousSequenceFound = NO;
-//    NSLog(@"\n\nCards in order:\n");
-//    [cardDeck printDeck];
-    NSLog(@"\n\nCards shuffled once:\n\n");
-    [cardDeck shuffleDeck];
-    [cardDeck printDeck];
-    NSMapTable* firstRunOfTwoCombination = [cardDeck twoCardSequences];
+    RWCardDeck* standardCardDeck = [[RWCardDeck alloc] initWithStandardDeck];
+    RWGameLogic* gameLogic = [[RWGameLogic alloc] initWithCardDeck:standardCardDeck];
     
-    NSLog(@"\n\nCards shuffled twice:\n\n");
-    [cardDeck shuffleDeck];
-    [cardDeck printDeck];
-
-    NSMapTable* secondRunOfTwoCombination = [cardDeck twoCardSequences];
-    
-    
-    for (RWCardCombination* runOfTwoCombination in [[secondRunOfTwoCombination objectEnumerator] allObjects]) {
-
-        RWCardCombination *previousRunOfTwoCombo = [firstRunOfTwoCombination objectForKey:@([runOfTwoCombination hash])];
-        
-        if(previousRunOfTwoCombo && [runOfTwoCombination isEqual:previousRunOfTwoCombo]) {
-            previousSequenceFound = YES;
-            NSLog(@"\n\nDuplicate Sequence Found start again!\n\n");
-            break;
-        }
-    }
-    
-    }
-    NSLog(@"you win");
+    [gameLogic startGame];
 }
 
 
