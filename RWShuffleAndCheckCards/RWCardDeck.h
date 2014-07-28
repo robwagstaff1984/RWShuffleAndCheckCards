@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RWCardCombination.h"
 
 @interface RWCardDeck : NSObject
 
@@ -15,5 +16,5 @@
 -(id)initWithStandardDeck;
 -(void)shuffleDeck;
 -(void)printDeck;
--(NSMapTable*) twoCardSequences;
+-(NSMapTable*) cardCombinationsForType:(CardCombinationType)cardCombinationType;
 @end

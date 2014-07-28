@@ -9,6 +9,7 @@
 #import "RWCardCombination.h"
 #import "RWCard.h"
 
+
 @implementation RWCardCombination
 
 - (id)initWithCardsInCombination:(NSArray*)cardsInCombination
@@ -19,7 +20,6 @@
     }
     return self;
 }
-
 
 - (BOOL)isEqualToCardCombination:(RWCardCombination *)cardCombination {
     if (!cardCombination) {
@@ -64,5 +64,27 @@
     printf("\n");
 }
 
++(NSMapTable*) cardCombinationsForCards:(NSArray*)cards {
+    
+    NSMapTable* cardCombinations = [[NSMapTable alloc] init];
+    
+    for (int counter = 0; counter < [cards count]; counter++) {
+        if ([self isCardCombinationForCards:cards atPostion:counter]) {
+            RWCardCombination* cardCombination = [self cardCombinationForCards:cards atPosition:counter];
+            [cardCombinations setObject:cardCombination forKey:@([cardCombination hash])];
+        }
+    }
+    return cardCombinations;
+}
+
++(RWCardCombination*) cardCombinationForCards:(NSArray*) cards atPosition:(int)position {
+    NSAssert(NO, @"Should subclass cardCombination");
+    return nil;
+}
+
++ (BOOL)isCardCombinationForCards:(NSArray*)cards atPostion:(int) position {
+    NSAssert(NO, @"Should subclass cardCombination");
+    return NO;
+}
 
 @end

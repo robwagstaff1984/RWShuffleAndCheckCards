@@ -9,6 +9,9 @@
 #import "RWCardDeck.h"
 #import "RWCard.h"
 #import "RWCardCombination.h"
+#import "RWSequenceOfTwoCardCombination.h"
+#import "RWSequenceOfThreeCardCombination.h"
+#import "RWArbitraryCardCombination.h"
 
 #define STANDARD_NUM_SUITS 4
 #define STANDARD_NUM_CARDS_IN_A_SUIT 13
@@ -21,14 +24,8 @@
     self = [super init];
     if (self) {
         self.cards = [NSMutableArray arrayWithArray:[self standardDeck]];
-//        self.cards = [NSMutableArray arrayWithArray:[self twoCardDeck]];
     }
     return self;
-}
-
--(NSArray*) twoCardDeck {
-    return @[[[RWCard alloc] initWithCardValue:6 suit:2], [[RWCard alloc] initWithCardValue:7 suit:2]];
-             
 }
 
 -(NSArray*) standardDeck {
@@ -53,23 +50,17 @@
     }
 }
 
-//Hashing not working. nil values may be a problem
--(NSMapTable*) twoCardSequences {
-    NSMapTable* twoCardSequenceCombinations = [[NSMapTable alloc] init];
+-(NSMapTable*) cardCombinationsForType:(CardCombinationType)cardCombinationType {
     
-    for (int counter = 0; counter < [self.cards count] - 1; counter++) {
-        RWCard* currentCard = self.cards[counter];
-        RWCard* nextCard = self.cards[counter+1];
-        
-        if ((currentCard.cardValue == nextCard.cardValue + 1) || (currentCard.cardValue == nextCard.cardValue - 1)) {
-            
-            RWCardCombination* cardCombination = [[RWCardCombination alloc] initWithCardsInCombination:@[currentCard, nextCard]];
-            
-            long hashKey = [cardCombination hash];
-            [twoCardSequenceCombinations setObject:cardCombination forKey:@(hashKey)];
-        }
+    if (cardCombinationType == CardCombinationTypeSequenceOfTwo) {
+        return [RWSequenceOfTwoCardCombination cardCombinationsForCards:self.cards];
+    } else if (cardCombinationType == CardCombinationTypeSequenceOfThree) {
+        return [RWSequenceOfThreeCardCombination cardCombinationsForCards:self.cards];
+    } else if (cardCombinationType == CardCombinationTypeArbitraryCombination) {
+        return [RWArbitraryCardCombination cardCombinationsForCards:self.cards];
     }
-    return twoCardSequenceCombinations;
+    
+    return nil;
 }
 
 @end

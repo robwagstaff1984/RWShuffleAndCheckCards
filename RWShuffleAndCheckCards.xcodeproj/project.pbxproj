@@ -17,6 +17,9 @@
 		360A5D20198370EB004569AE /* RWCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 360A5D1F198370EB004569AE /* RWCard.m */; };
 		360A5D23198384F1004569AE /* RWCardCombination.m in Sources */ = {isa = PBXBuildFile; fileRef = 360A5D22198384F1004569AE /* RWCardCombination.m */; };
 		360A5D261985DC0F004569AE /* RWGameLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 360A5D251985DC0F004569AE /* RWGameLogic.m */; };
+		360A5D291985F9C9004569AE /* RWSequenceOfTwoCardCombination.m in Sources */ = {isa = PBXBuildFile; fileRef = 360A5D281985F9C9004569AE /* RWSequenceOfTwoCardCombination.m */; };
+		360A5D2C1986147B004569AE /* RWSequenceOfThreeCardCombination.m in Sources */ = {isa = PBXBuildFile; fileRef = 360A5D2B1986147B004569AE /* RWSequenceOfThreeCardCombination.m */; };
+		360A5D30198614D2004569AE /* RWArbitraryCardCombination.m in Sources */ = {isa = PBXBuildFile; fileRef = 360A5D2F198614D2004569AE /* RWArbitraryCardCombination.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +53,12 @@
 		360A5D22198384F1004569AE /* RWCardCombination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWCardCombination.m; sourceTree = "<group>"; };
 		360A5D241985DC0F004569AE /* RWGameLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWGameLogic.h; sourceTree = "<group>"; };
 		360A5D251985DC0F004569AE /* RWGameLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWGameLogic.m; sourceTree = "<group>"; };
+		360A5D271985F9C9004569AE /* RWSequenceOfTwoCardCombination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWSequenceOfTwoCardCombination.h; sourceTree = "<group>"; };
+		360A5D281985F9C9004569AE /* RWSequenceOfTwoCardCombination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWSequenceOfTwoCardCombination.m; sourceTree = "<group>"; };
+		360A5D2A1986147B004569AE /* RWSequenceOfThreeCardCombination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWSequenceOfThreeCardCombination.h; sourceTree = "<group>"; };
+		360A5D2B1986147B004569AE /* RWSequenceOfThreeCardCombination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWSequenceOfThreeCardCombination.m; sourceTree = "<group>"; };
+		360A5D2E198614D2004569AE /* RWArbitraryCardCombination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWArbitraryCardCombination.h; sourceTree = "<group>"; };
+		360A5D2F198614D2004569AE /* RWArbitraryCardCombination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWArbitraryCardCombination.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,16 +141,30 @@
 		360A5D1A19837023004569AE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				360A5D2D19861496004569AE /* CardCombination */,
 				360A5D1B19837035004569AE /* RWCardDeck.h */,
 				360A5D1C19837035004569AE /* RWCardDeck.m */,
 				360A5D1E198370EB004569AE /* RWCard.h */,
 				360A5D1F198370EB004569AE /* RWCard.m */,
-				360A5D21198384F1004569AE /* RWCardCombination.h */,
-				360A5D22198384F1004569AE /* RWCardCombination.m */,
 				360A5D241985DC0F004569AE /* RWGameLogic.h */,
 				360A5D251985DC0F004569AE /* RWGameLogic.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		360A5D2D19861496004569AE /* CardCombination */ = {
+			isa = PBXGroup;
+			children = (
+				360A5D21198384F1004569AE /* RWCardCombination.h */,
+				360A5D22198384F1004569AE /* RWCardCombination.m */,
+				360A5D271985F9C9004569AE /* RWSequenceOfTwoCardCombination.h */,
+				360A5D281985F9C9004569AE /* RWSequenceOfTwoCardCombination.m */,
+				360A5D2A1986147B004569AE /* RWSequenceOfThreeCardCombination.h */,
+				360A5D2B1986147B004569AE /* RWSequenceOfThreeCardCombination.m */,
+				360A5D2E198614D2004569AE /* RWArbitraryCardCombination.h */,
+				360A5D2F198614D2004569AE /* RWArbitraryCardCombination.m */,
+			);
+			name = CardCombination;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,7 +266,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				360A5D2C1986147B004569AE /* RWSequenceOfThreeCardCombination.m in Sources */,
+				360A5D291985F9C9004569AE /* RWSequenceOfTwoCardCombination.m in Sources */,
 				360A5D23198384F1004569AE /* RWCardCombination.m in Sources */,
+				360A5D30198614D2004569AE /* RWArbitraryCardCombination.m in Sources */,
 				360A5D20198370EB004569AE /* RWCard.m in Sources */,
 				360A5D0019836F00004569AE /* ViewController.m in Sources */,
 				360A5D1D19837035004569AE /* RWCardDeck.m in Sources */,

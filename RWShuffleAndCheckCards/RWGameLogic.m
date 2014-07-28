@@ -13,8 +13,9 @@
 
 @property(nonatomic, strong) RWCardDeck* cardDeck;
 @property(nonatomic, assign) int shuffleCount;
-@property(nonatomic, strong) NSMapTable* firstRunOfTwoCombinations;
-@property(nonatomic, strong) NSMapTable* secondRunOfTwoCombinations;
+@property(nonatomic, strong) NSMapTable* firstShuffleCombinations;
+@property(nonatomic, strong) NSMapTable* secondShuffleCombinations;
+@property(nonatomic, assign) CardCombinationType cardCombinationType;
 
 @end
 
@@ -31,23 +32,35 @@
 
 -(void) startGame {
 
-    BOOL previousSequenceFound = YES;
-    [self setupGame];
+    NSLog(@"Playing 2 card sequence game:\n");
+    [self setupGameWithCardCombinationType:CardCombinationTypeSequenceOfTwo];
+    [self playGame];
     
-    while (previousSequenceFound) {
-        [self shuffleAndPrintDeck];
-        self.secondRunOfTwoCombinations = [self.cardDeck twoCardSequences];
-        previousSequenceFound = [self isACardCombinationInCurrentAndPreviousShuffle];
-        
-    }
-    NSLog(@"You win!\n%d shuffles taken to win", self.shuffleCount);
+    
+    NSLog(@"\nImplementing Question 1:\nPlaying 3 card sequence game:\n");
+    [self setupGameWithCardCombinationType:CardCombinationTypeSequenceOfThree];
+    [self playGame];
 }
+
+-(void) playGame {
+    
+    [self shuffleAndPrintDeck];
+    self.secondShuffleCombinations = [self.cardDeck cardCombinationsForType:self.cardCombinationType];
+    
+    if ([self isACardCombinationInCurrentAndPreviousShuffle]) {
+        self.firstShuffleCombinations = self.secondShuffleCombinations;
+        [self playGame];
+    } else {
+        NSLog(@"You win!\n%d shuffles taken to win\n", self.shuffleCount);
+    }
+}
+
 
 -(BOOL) isACardCombinationInCurrentAndPreviousShuffle {
     
-    for (RWCardCombination* runOfTwoCombination in [[self.secondRunOfTwoCombinations objectEnumerator] allObjects]) {
+    for (RWCardCombination* runOfTwoCombination in [[self.secondShuffleCombinations objectEnumerator] allObjects]) {
         
-        RWCardCombination *previousRunOfTwoCombo = [self.firstRunOfTwoCombinations objectForKey:@([runOfTwoCombination hash])];
+        RWCardCombination *previousRunOfTwoCombo = [self.firstShuffleCombinations objectForKey:@([runOfTwoCombination hash])];
         if(previousRunOfTwoCombo && [runOfTwoCombination isEqual:previousRunOfTwoCombo]) {
             NSLog(@"\n\nDuplicate Sequence Found start again!\n\n");
             [runOfTwoCombination printCardCombination];
@@ -57,12 +70,13 @@
     return NO;
 }
 
--(void) setupGame {
+-(void) setupGameWithCardCombinationType:(CardCombinationType) cardCombinationType {
     self.shuffleCount = 0;
+    self.cardCombinationType = cardCombinationType;
     NSLog(@"\n\nCards in order:\n");
     [self.cardDeck printDeck];
     [self shuffleAndPrintDeck];
-    self.firstRunOfTwoCombinations = [self.cardDeck twoCardSequences];
+    self.firstShuffleCombinations = [self.cardDeck cardCombinationsForType:self.cardCombinationType];
 }
 
 -(void) shuffleAndPrintDeck {
