@@ -16,4 +16,5 @@
 @property (nonatomic, assign) NSUInteger suit;
 @property (nonatomic, assign) NSUInteger cardValue;
 -(NSUInteger) cardIdentifier;
+-(void)printCard;
 @end

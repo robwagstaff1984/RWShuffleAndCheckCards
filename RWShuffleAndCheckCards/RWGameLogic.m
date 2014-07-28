@@ -50,6 +50,7 @@
         RWCardCombination *previousRunOfTwoCombo = [self.firstRunOfTwoCombinations objectForKey:@([runOfTwoCombination hash])];
         if(previousRunOfTwoCombo && [runOfTwoCombination isEqual:previousRunOfTwoCombo]) {
             NSLog(@"\n\nDuplicate Sequence Found start again!\n\n");
+            [runOfTwoCombination printCardCombination];
             return YES;
         }
     }
@@ -62,7 +63,6 @@
     [self.cardDeck printDeck];
     [self shuffleAndPrintDeck];
     self.firstRunOfTwoCombinations = [self.cardDeck twoCardSequences];
-    
 }
 
 -(void) shuffleAndPrintDeck {

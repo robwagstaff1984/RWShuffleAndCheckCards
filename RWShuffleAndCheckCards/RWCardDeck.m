@@ -47,10 +47,12 @@
 }
 
 -(void) printDeck {
+    NSLog(@"Current deck:");
     for (int counter = 0; counter < [self.cards count]; counter++) {
-        NSLog(@"Card at position %d: value: %d suit: %d\n", counter, ((RWCard*)self.cards[counter]).cardValue, ((RWCard*)self.cards[counter]).suit);
+        [self.cards[counter] printCard];
     }
 }
+
 //Hashing not working. nil values may be a problem
 -(NSMapTable*) twoCardSequences {
     NSMapTable* twoCardSequenceCombinations = [[NSMapTable alloc] init];

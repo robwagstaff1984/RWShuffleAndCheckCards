@@ -55,7 +55,14 @@
     return [combinedCardIdentifier hash];
 }
 
+-(void) printCardCombination {
 
+    printf("Card combination:\n");
+    for (RWCard* card in self.cardsInCombination) {
+        [card printCard];
+    }
+    printf("\n");
+}
 
 
 @end

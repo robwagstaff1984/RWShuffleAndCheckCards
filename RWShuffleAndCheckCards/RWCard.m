@@ -47,4 +47,9 @@
 -(NSUInteger) cardIdentifier {
     return (self.cardValue * self.suit) + self.cardValue;
 }
+
+-(void) printCard {
+    printf("Card value: %d Suit: %d\n", self.cardValue, self.suit);
+}
+
 @end

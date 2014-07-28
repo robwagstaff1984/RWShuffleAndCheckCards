@@ -14,4 +14,6 @@
 
 - (id)initWithCardsInCombination:(NSArray*)cardsInCombination;
 
+-(void) printCardCombination;
+
 @end
